@@ -1,0 +1,8 @@
+Time complexity
+append - O(1)
+prepend - O(1)
+insert - O(n) but better than array because in array we need to shift elements from inserting index position to right
+          while in linked list we need to traverse at inserting position and now just played with the references
+delete - O(n)
+lookup - O(n)
+search - O(n)
