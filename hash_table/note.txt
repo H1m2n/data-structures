@@ -1,0 +1,10 @@
+lookup - O(n)
+* as in case of memory collision(generally will happen in memory constraint) we need to find out key's value in deeper in linked list
+through loops
+* although we can lookup on any flexible keys while in array lookup is faster than dictionary but we can do lookup only on
+index
+
+search - O(n)
+insert - O(n)
+delete - O(n)
+

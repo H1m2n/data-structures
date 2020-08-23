@@ -1,0 +1,5 @@
+Array could be of 2 types
+1. static array -  where we predefined length of array
+2. dynamic array - length increases dynamically, how?
+ans - dynamic array double up its default size when you going to insert element eveerytime when array got packed
+
