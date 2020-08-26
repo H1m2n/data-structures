@@ -1,0 +1,5 @@
+* Queue can be formed with Array as well as linked list too.
+* But implementing Queue with Array is very bad idea due to Queue provide FIFO
+and if we insert and remove from first position of array then we need to unshift all the remaining elements to right
+
+It provides only operations like push, pop, peek

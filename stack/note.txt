@@ -1,0 +1,3 @@
+Stack can be formed with Array as well as linked list too.
+
+It provides only operations like push, pop, peek

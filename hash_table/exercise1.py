@@ -6,7 +6,12 @@ class HashTable:
         self.array = [None] * length
 
     def _hash(self, key):
-        """Get the index of our array for a specific string key"""
+        """
+        This is the has function that will allocate a memory address to store a key value pair
+        Get the index of our array for a specific string key
+        :param key:
+        :return:
+        """
         length = len(self.array)
         return hash(key) % length
 
