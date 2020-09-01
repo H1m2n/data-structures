@@ -1,0 +1,41 @@
+Q: Binary Tree?
+Ans: In binary tree, a parent node has either 0 child or 2 child node that's why binary tree.
+
+Q: BST
+Ans: In binary search tree nodes are arranged in such like that a parent node either has 0 node or if it has any child node
+then left side node have value will be less than parent node's value and right side node have value will be greater than parent node's value.
+eg:      5
+       /   \
+      3     7
+     / \     \
+    1   4     8
+
+Q: Perfect BST
+Ans: A BST where parent node will have 0 node or 2 nodes
+eg:      5
+       /   \
+      3     7
+     / \   /  \
+    1   4  6   8
+
+Q: Time complexity?
+Ans: insert - O(log n)
+     lookup - O(log n)
+     remove - O(log n)
+
+nodes = 2^height - 1
+nodes in example tree = 2^3 - 1 = 7
+
+because log n < n as in case of BST we don't need to traverse through all elements as in array because of its property
+of parent child relation that's why for operations like insert and delete BST is better that Array. Meanwhile
+lookup is good in Array(O(1)) than BST(O(log n))
+
+
+Q: Balanced and Unbalanced Tree
+Ans: For worst case it could be possible that if suppose elements are like
+1,2,3,4,5,6,7,8,10
+then Tree is unbalanced because of its parent child relationship law due to that time complexity can be increased to
+O(n). There are some solutions to avoid unbalanced tree type of formation.
+
+
+
