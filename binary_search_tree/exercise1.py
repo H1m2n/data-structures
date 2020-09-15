@@ -45,6 +45,38 @@ class BST:
             else:
                 current_node = current_node.right
 
+    def bfs_traversal(self):
+        data = []
+        queue = [self.root]
+        # print(queue.pop(0))
+        while len(queue) > 0:
+            current_node = queue.pop(0)
+            data.append(current_node.value)
+            if current_node.left:
+                queue.append(current_node.left)
+            if current_node.right:
+                queue.append(current_node.right)
+        return data
+
+    def is_valid_BST(self):
+        data = []
+        queue = [self.root]
+        # print(queue.pop(0))
+        while len(queue) > 0:
+            print(queue)
+            current_node = queue.pop(0)
+            data.append(current_node.value)
+            if current_node.left:
+                if current_node.left.value > current_node.value:
+                    return False
+                queue.append(current_node.left)
+            if current_node.right:
+                if current_node.right.value < current_node.value:
+                    return False
+                queue.append(current_node.right)
+        print(data)
+        return True
+
 
 if __name__ == '__main__':
     obj = BST()
@@ -56,3 +88,4 @@ if __name__ == '__main__':
     obj.insert(6)
     obj.insert(8)
     print(obj.lookup(8))
+    print(obj.is_valid_BST())
