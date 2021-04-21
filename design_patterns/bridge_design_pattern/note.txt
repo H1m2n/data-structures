@@ -1,0 +1,15 @@
+It comes under structural design pattern that provide ease the design by identifying a simple way to realize
+relationship among entities
+
+This pattern is used to separate an abstraction from implementation so that both can be modified independently
+
+This pattern involves an interface which act as a bridge between abstraction class and implementer class
+
+Business requirement:
+Process payment on e-commerce website
+
+website has only option to select NetBanking or Card payment and the gateway to proceed
+
+Note -> in data storage project ViewsServiceImp consist of implementation of simple factory as well as bridge design patteren
+where ViewsServiceImp has reference of implementer class, and which implementer to be called at runtime we are deciding inside
+view class
