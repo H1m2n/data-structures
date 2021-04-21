@@ -1,0 +1,16 @@
+It comes under creational design pattern where we deal with creation of objects
+
+Abstract factory pattern provides an interface for creating families of related or dependent objects
+without specifying their concrete classes
+
+Abstract factory is a super factory that creates other factories
+
+business requirement:
+let say we need to allocation system to employee based on their employment type and designation
+for permanent:
+   if manage -> Apple I7 Laptop
+   if developer -> Apple I7 Desktop
+
+for contract:
+   if manage -> DELL I5 Laptop
+   if developer -> DELL I5 Desktop

@@ -1,0 +1,10 @@
+It comes under creational design pattern where we deal with creation of objects
+
+Simple Factory is used wherever we have common properties but they are meant to be derived at there own way
+
+for eg:
+Business requirement:
+* Differentiate employee as permanent and contract and segregate their payscale as well as bonus based on their employee
+types (Achieved using simple factory)
+
+

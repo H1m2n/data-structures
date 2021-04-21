@@ -1,0 +1,14 @@
+It comes under creational design pattern where we deal with creation of objects
+
+Factory method is used wherever we have common properties but they are meant to be derived at there own way
+and extendly some of the instances may have their own property that is not necessarly available in other instances
+
+for eg:
+Business requirement:
+* Differentiate employee as permanent and contract and segregate their payscale as well as bonus based on their employee
+types (Achieved using simple factory)
+
+* Calculate permanent employee house rent allowance
+
+* Calculate Contract employee medical allowance
+
