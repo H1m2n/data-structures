@@ -1,0 +1,5 @@
+It comes under creational design pattern where we deal with creation of objects
+
+We use builder design pattern where we need to configure a object step by step
+
+Builder design pattern is used to get rid of the declaring many parameters at time of object initialization
