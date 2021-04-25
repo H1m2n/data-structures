@@ -2,4 +2,14 @@ Array could be of 2 types
 1. static array -  where we predefined length of array
 2. dynamic array - length increases dynamically, how?
 ans - dynamic array double up its default size when you going to insert element eveerytime when array got packed
+that's why sometimes push or append operation will have time complexity O(n) -> why? when array got packed then
+memory reallocation happens for previous allocated elements
+
+time complexity
+
+push -----> O(1) / O(n)
+pop  -----> O(1)
+delete ---> O(n)
+lookup ---> O(1)
+
 
