@@ -37,5 +37,131 @@ Ans: For worst case it could be possible that if suppose elements are like
 then Tree is unbalanced because of its parent child relationship law due to that time complexity can be increased to
 O(n). There are some solutions to avoid unbalanced tree type of formation.
 
+class Node:
+   def __init__(value):
+      self.value = value
+      self.left = None
+      self.right = None
+
+class BST:
+   def __int__:
+      self.root = None
+
+insert(value):
+   new_node = Node(value)
+   if self.root is None:
+       self.root = new_node
+   else:
+       curr_node = self.root
+       while(True):
+          if value > curr_node.value:
+            tmp_node = curr_node.right
+            if tmp_node is None:
+                curr_node.right = new_node
+                break
+            else:
+                curr_node = tmp_node
+          else:
+            tmp_node = curr_node.left
+            if tmp_node is None:
+               curr_node.left = new_node
+               break
+            else:
+               curr_node = tmp_node
 
 
+
+lookup(value):
+  if self.root is None:
+    return False
+  else:
+    curr_node = self.root
+    while(True):
+        if curr_node is None:
+            return False
+
+        if curr_node.value == value:
+            return curr_node
+
+        if value < curr_node.value:
+            curr_node = curr_node.left
+        else:
+            curr_node = curr_node.right
+
+
+
+remove(value):
+    if self.root is None
+        return
+    else:
+        curr_node = self.root
+        parent_node = None
+        while(curr_node):
+            if curr_node.value == value:
+                break
+
+            parent_node = curr_node
+            if value < curr_node.value:
+                curr_node = curr_node.left
+            else:
+                curr_node = curr_node.right
+
+        if not curr_node:
+            return "No element found to remove"
+
+
+        if parent_node:
+            # check if curr_node node is a leaf node
+            if curr_node.left is None and curr_node.right is None:
+                pass
+            elif curr_node.left is None and curr_node.right:
+                parent_node.right = curr_node.right
+            elif curr_node.right is None and curr_node.left:
+                parent_node.left = curr_node.left
+            else:
+                if curr_node.right.left is None:
+                    parent_node.right = curr_node.right
+                    curr_node.left = parent_node.right
+                else:
+                    leaf_left_node = curr_node.left
+                    while(leaf_left_node):
+                        leaf_left_node = leaf_left_node.left
+                    parent_node.right = leaf_left_node
+                    leaf_left_node.left = curr_node.left
+                    leaf_left_node.right = curr_node.right
+
+        else:
+            # we are removing root node
+
+
+
+
+eg:      5
+       /   \
+      3     7
+     / \   /  \
+    1   4  6   10
+               / \
+             9   15
+             /    \
+            8       16
+
+ output after removing 10 -->
+         5
+       /   \
+      3     7
+     / \   /  \
+    1   4  6   15
+               / \
+             9   16
+            /
+           8
+
+ output after removing 7 -->
+         5
+       /   \
+      3     8
+     / \   /  \
+    1   4  6   15
+               / \
+             9   16

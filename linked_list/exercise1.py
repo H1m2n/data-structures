@@ -59,6 +59,21 @@ class SinglyLinkedList:
         self.length -= 1
 
     def reverse(self):
+        """
+        first_node = self.head
+        self.tail = first_node
+        second_node = first_node.next
+
+        while(second_node)
+            tmp = second_node.next
+            second_node.next = first
+            first_node = second_node
+            second_node = tmp
+        first_node.next = None
+        self.head = first_node
+
+        :return:
+        """
         prev_node = None
         current_node = self.head
         while current_node:

@@ -8,3 +8,10 @@ search - O(n)
 insert - O(n)
 delete - O(n)
 
+Why hash table used in linked list?
+
+deletion is fast as compare to array as in case of array we need to shift all elements at left(reindexing)
+but in linked list we just need to get the deleted item through traversal and just update the reference.
+
+In case of collision, Appending is also fast as compare to array as in case of array we might need to copyover all elements to next
+memory location in case array is fulled but in linked list we just need to get the tail and now tail will point to next element

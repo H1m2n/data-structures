@@ -1,3 +1,19 @@
 Stack can be formed with Array as well as linked list too.
 
 It provides only operations like push, pop, peek
+
+
+
+
+bottom         top
+10<-----20<-----30
+
+holding_pointer = self.top
+self.top = Node
+self.top.next = holding_pointer
+
+
+
+
+
+

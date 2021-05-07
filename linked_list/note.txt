@@ -6,3 +6,47 @@ insert - O(n) but better than array because in array we need to shift elements f
 delete - O(n)
 lookup - O(n)
 search - O(n)
+
+
+head                tail
+10---->5---->20---->1
+
+new_node.next = self.head
+self.head.prev = new_node
+self.head = new_node
+
+
+
+
+10---->5---->20---->1
+10---->5---->10---->20---->1
+
+leader_node = 5
+holding_pointer = leader_node.next
+leader_node.next = new_node
+new_node.next = holding_pointer
+new_node.prev = leader_node
+holding_pointer.prev = new_node
+
+
+leader_node.next = leader_node.next.next
+leader_node.next.next.prev = leader_node
+first_node =
+
+10---->5------>20------->8
+   ----->
+10<-----5    20----->8
+
+first_node = self.head
+second_node = first_node.next
+
+while(second_node)
+    tmp = second_node.next
+    second_node.next = first
+    first_node = second_node
+    second_node = tmp
+
+
+
+
+

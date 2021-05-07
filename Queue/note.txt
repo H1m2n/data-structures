@@ -3,3 +3,22 @@
 and if we insert and remove from first position of array then we need to unshift all the remaining elements to right
 
 It provides only operations like push, pop, peek
+
+
+
+
+last          first
+30<----20<----10
+
+enqueue(value):
+   if self.length == 0:
+       self.first = Node
+       self.last = Node
+   else:
+       self.last.next = new_node
+       self.last = new_ode
+
+
+dequeue():
+  enqueue_node = self.first
+  sel.first.next = self.first
