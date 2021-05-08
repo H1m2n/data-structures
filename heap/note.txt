@@ -1,0 +1,62 @@
+Heap is nothing but a complete binary tree, where every parent node of the sub tree
+is largest/smallest than their child nodes.
+
+Heap are of 2 types -
+1. Min heap
+2. Max Heap
+
+Min heap: Min heap is a complete binary tree, where every parent node of the sub tree
+is smallest than their child nodes.
+
+Max heap: Man heap is a complete binary tree, where every parent node of the sub tree
+is largest than their child nodes.
+
+Full binary tree:
+If in a tree every parent has exactly 2 nodes then it is full binary tree.
+
+eg:
+            50
+           /  \
+          30   20
+         /  \ /  \
+        5   1 6   10
+
+Complete binary tree:
+If in a tree of height h at level of h-1 we found full tree and at level h elements are arranged from left
+to right then it a complete binary tree. We can also find a tree is complete BT or not by arranging tree
+in array representation, if any element is blank while putting element left to right then tree is not complete BT.
+
+eg:                          complete binary tree      array representation           full binary tree
+            50
+           /  \
+          30   20                  ✓                    [50, 30, 20, 5, 1, 6, 10]           ✓
+         /  \ /  \
+        5   1 6   10
+
+            50
+           /  \
+          30   20                  ✓                    [50, 30, 20, 5, 1, 6]               ✖
+         /  \ /
+        5   1 6
+
+            50
+           /  \
+          30   20                   ✖                   [50, 30, 20, 5, 1, -, 10]           ✖
+         /  \    \
+        5   1    10
+
+
+Time complexity:
+insertion: O(log n)
+deletion: O(log n)
+lookup: O(n)
+
+We don't use heap for lookup generally instead we interested in heap if we need to get
+k smallest or k largest number or something similar to it.
+
+
+Usually for a heap creation we use arrays.
+If we we represent a heap as in array then below condition should satisfy to be a heap are -
+1. parent node should lies at - arr[i/2]
+2. left child should lies at - arr[i*2]
+3. right child should lies at - arr[i*2 + 1]
