@@ -11,6 +11,7 @@ class MaxHeap:
         self.element_count = 1  # assumption is 1st element is already there in array even if it is not present
         self.latest_parent_index = 0
         self.latest_parent = None
+        self.last_index = 0
 
     def push(self, element):
         """
@@ -48,6 +49,7 @@ class MaxHeap:
         """
         self.arr.append(element)
         self.element_count += 1
+        self.last_index += 1
         if self.latest_parent is None:
             self.latest_parent = element
             self.latest_parent_index += 1
@@ -102,56 +104,62 @@ class MaxHeap:
         | \  \
         20  11 30
         """
+        if self.last_index == 0:
+            return
         popped_element = self.arr[1]
-        self.arr[1] = self.arr[len(self.arr) - 1]
-        self.arr[-1] = None
+        self.arr[1] = self.arr[self.last_index]
+        self.arr[self.last_index] = None
+        self.last_index -= 1
         parent_index = 1
         while True:
             parent_element = self.arr[parent_index]
             child_node1_index = 2 * parent_index
             child_node2_index = 2 * parent_index + 1
-            if not self.arr[child_node1_index]:
+            if child_node1_index > self.last_index and child_node2_index > self.last_index:
                 break
-            if not self.arr[child_node2_index]:
-                break
-            if self.arr[child_node1_index] > self.arr[child_node2_index]:
-                swap_check_element = self.arr[child_node1_index]
+            elif child_node2_index > self.last_index:
+                child_node1_element = self.arr[child_node1_index]
+                child_node2_element = None
+            else:
+                child_node1_element = self.arr[child_node1_index]
+                child_node2_element = self.arr[child_node2_index]
+
+            if not child_node2_element:
+                swap_check_element = child_node1_element
                 swap_check_index = child_node1_index
             else:
-                swap_check_element = self.arr[child_node2_index]
-                swap_check_index = child_node2_index
+                if child_node1_element > child_node2_element:
+                    swap_check_element = child_node1_element
+                    swap_check_index = child_node1_index
+                else:
+                    swap_check_element = child_node2_element
+                    swap_check_index = child_node2_index
 
             if parent_element < swap_check_element:
                 self.arr[parent_index], self.arr[swap_check_index] = (
                     self.arr[swap_check_index], self.arr[parent_index])
             parent_index += 1
-        self.arr = self.arr[0:-1]
+        # self.arr = self.arr[0:self.last_index+1]
         return popped_element
 
 
 obj = MaxHeap()
+# push operation
 for x in [10, 6, 50, 5, 20, 30, 1, 100, 55, 11]:
     obj.push(x)
 print(obj.arr)
-obj.pop()
-print(obj.arr)
 
-obj.pop()
-print(obj.arr)
+# pop operation
+while obj.last_index != 0:
+    obj.pop()
+    print(obj.arr)
 
-obj.pop()
-print(obj.arr)
+# sorting
+while obj.last_index != 0:
+    popped_element = obj.pop()
+    obj.arr[obj.last_index + 1] = popped_element
+    print(obj.arr)
 
-obj.pop()
-print(obj.arr)
-
-obj.pop()
-print(obj.arr)
-
-obj.pop()
-print(obj.arr)
-obj.pop()
-print(obj.arr)
 # [None, 50, 20, 30, 100, 6, 10, 1, 5]
 # 100
 # |  \
