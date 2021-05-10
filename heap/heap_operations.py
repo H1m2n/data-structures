@@ -13,7 +13,77 @@ class MaxHeap:
         self.latest_parent = None
         self.last_index = 0
 
-    def push(self, element):
+    def push(self, arr, element, parent_index=0, push_flag=True):
+        """
+        Time complexity O(log n)
+        10  6   50  5   20  30  1
+        for inserting every node we need to compare it with parent node. if curr node > parent node, then do swap
+        1st sub tree
+        1. insert 10 - [-, 10] parent node 10
+        2. insert 6  - [-, 10, 6]  parent node 10
+        3  insert 50 - [-, 50, 6, 10] as parent node 10 < curr node 50 then do swap. now parent is 50
+          tree
+                    50
+                   /  \
+                  6   10
+        2nd subtree
+        4 insert 5 - [-, 50, 6, 10, 5]. now parent is 6
+        5 insert 20 - [-, 50, 20, 10, 5, 6] as parent node 6 < curr node 20 then do swap. now parent is 20
+          tree
+                    50
+                   /  \
+                  20   10
+                 /  \
+                5   6
+
+        3rd subtree
+        parent node is 10
+        6 insert 30 - [-, 50, 20, 30, 5, 6, 10] as parent node 10 < curr node 30 the do swap, now parent is 30
+        7 insert 1 - [-, 50, 20, 30, 5, 6, 10, 1]
+           tree
+                    50
+                   /  \
+                  20   30
+                 /  \  / \
+                5   6 10  1
+        :param arr:
+        :param element:
+        :param parent_index:
+        :param push_flag:
+        :return:
+        """
+        if push_flag:
+            arr.append(element)
+            curr_node_index = len(arr) - 1
+            parent_index = curr_node_index // 2
+
+        # if recently pushed element is bigger than other elements, then put it at its right position from downwards
+        # to upwards
+        if parent_index == 0:
+            return
+        child_node1_index = parent_index * 2
+        child_node2_index = parent_index * 2 + 1
+
+        if child_node1_index <= len(arr) - 1 < child_node2_index:
+            swap_check_element = arr[child_node1_index]
+            swap_check_index = child_node1_index
+        else:
+            child_node1_element = arr[child_node1_index]
+            child_node2_element = arr[child_node2_index]
+            if child_node1_element > child_node2_element:
+                swap_check_element = child_node1_element
+                swap_check_index = child_node1_index
+            else:
+                swap_check_element = child_node2_element
+                swap_check_index = child_node2_index
+
+        parent_element = arr[parent_index]
+        if parent_element < swap_check_element:
+            arr[parent_index], arr[swap_check_index] = (arr[swap_check_index], arr[parent_index])
+            parent_index = parent_index // 2
+            self.push(arr, None, parent_index, push_flag=False)
+
+    def push1(self, element):
         """
         Time complexity O(log n)
         10  6   50  5   20  30  1
@@ -192,8 +262,10 @@ def push_operation():
     # If for a given array we convert that array to heap then the time complexity will be
     # O(nlog n)
     # push operation
+    arr = [None]
     for x in [10, 6, 50, 5, 20, 30, 1, 100, 55, 11]:
-        obj.push(x)
+        obj.push(arr, x)
+        print(arr)
     print(obj.arr)
 
 
@@ -221,6 +293,8 @@ def heapify_operation():
         last_index -= 1
     print(arr)
 
+
+push_operation()
 # [None, 50, 20, 30, 100, 6, 10, 1, 5]
 # 100
 # |  \
