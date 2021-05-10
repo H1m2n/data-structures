@@ -262,16 +262,18 @@ def push_operation():
     # If for a given array we convert that array to heap then the time complexity will be
     # O(nlog n)
     # push operation
-    arr = [None]
+    print("Push operation...")
     for x in [10, 6, 50, 5, 20, 30, 1, 100, 55, 11]:
-        obj.push(arr, x)
-        print(arr)
+        obj.push(obj.arr, x)
+    obj.last_index = len(obj.arr) - 1
     print(obj.arr)
 
 
 def pop_operation():
     # If we popping every element from heap then time complexity will be O(n log n)
     # pop operation
+    # obj.arr = [None, 10, 6, 50, 5, 20, 30, 1, 100, 55, 11]
+    print("Pop operation...")
     while obj.last_index != 0:
         obj.pop()
         print(obj.arr)
@@ -279,6 +281,7 @@ def pop_operation():
 
 def heap_sort():
     # sorting
+    print("Heap sort...")
     while obj.last_index != 0:
         popped_element = obj.pop()
         obj.arr[obj.last_index + 1] = popped_element
@@ -286,6 +289,7 @@ def heap_sort():
 
 
 def heapify_operation():
+    print("Heapify...")
     arr = [10, 6, 50, 5, 20, 30, 1, 100, 55, 11]
     last_index = len(arr) - 1
     while last_index >= 0:
@@ -295,6 +299,9 @@ def heapify_operation():
 
 
 push_operation()
+# pop_operation()
+heap_sort()
+heapify_operation()
 # [None, 50, 20, 30, 100, 6, 10, 1, 5]
 # 100
 # |  \
@@ -303,3 +310,11 @@ push_operation()
 # 50 11 10 1
 # | \ \
 # 5  20 6
+
+# 10
+# |  \
+# 6  50
+# | \  | \
+# 5 20 30 1
+# | \ \
+# 100 55 11

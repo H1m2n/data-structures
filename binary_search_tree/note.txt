@@ -165,3 +165,65 @@ eg:      5
     1   4  6   15
                / \
              9   16
+
+
+
+
+BST can be unbalanced, so we need to have balance BST on prod env.
+Balanced bST technique are
+1. AVL Tree
+2. Red Black Tree
+
+Q: How we check a tree is balance or not?
+Ans: We have to calculate balance factor of each node. If balance factor lies in -1, 0, 1, for every node then tree
+     is balanced otherwise unbalanced.
+
+Q: How we calculate balance factor?
+Ans: balance factor = height of left - height of right
+Ans: eg:            10 --> 2 - 0 = 2
+                   /
+                  20 --> 1-0 = 0
+                  /
+                 30 --> 0
+
+                 10 -----> 1 - 2 = -1
+                /  \
+          0<---20   30 ---> 0 - 1 = -1
+                     \
+                      40 --> 0
+Q: How we balance a tree?
+Ans: Tree can be unbalanced when we just inserted a new node. So to balance it we need to perform rotation
+1. LL -> used if tree is unbalanced due to left of left insertion
+2. RR -> used if tree is unbalanced due to right of right insertion
+3. LR -> used if tree is unbalanced due to right of left insertion
+4. RL -> used if tree is unbalanced due to left of right insertion
+
+
+LL Rotation:
+    We fix a nail on imbalanced node and then we pull thread towards RIGHT
+
+RR Rotation:
+    We fix a nail on imbalanced node and then we pull thread towards LEFT
+
+LR Rotation:
+    Here we need 2 step rotation. For balancing, first we need to rotate 3rd node at LEFT side and then
+    imbalanced node towards RIGHT.
+
+RL Rotation:
+    Here we need 2 step rotation. For balancing, first we need to rotate 3rd node at RIGHT side and then
+    imbalanced node towards LEFT.
+
+
+                         40
+                        /  \
+                       30  50
+                      / \    \
+                     20  25   60
+                    /
+                   10
+                  /
+                 1
+
+    Note: WHEN WE INSERTED A NEW NODE, WE NEED TO CALCULATE BALANCE FACTOR OF A SUBTREE UNTIL WE FOUND A IMBALANCED NODE
+    AS SOON AS WE FOUND AN IMBALANCED NODE. WE HAVE TO BALANCE ONLY THAT SUBTREE, AUTOMATICALLY SUBTREE AT ITS TOP WILL
+    BE BALANCED. AND RIGHT OR LEFT SUBTREE NEED TO BE PLACED WHERE LEFT OR RIGHT POINTER IS NOT AVAILABLE.
