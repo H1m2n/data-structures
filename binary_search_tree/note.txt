@@ -172,7 +172,7 @@ eg:      5
 BST can be unbalanced, so we need to have balance BST on prod env.
 Balanced bST technique are
 1. AVL Tree
-2. Red Black Tree
+2. Red Black Tree (Red black tree is almost same as AVL tree, the difference is not as restricted as AVL tree)
 
 Q: How we check a tree is balance or not?
 Ans: We have to calculate balance factor of each node. If balance factor lies in -1, 0, 1, for every node then tree
