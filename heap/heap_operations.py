@@ -15,6 +15,7 @@ class MaxHeap:
 
     def push(self, element):
         """
+        Time complexity O(log n)
         10  6   50  5   20  30  1
         for inserting every node we need to compare it with parent node. if curr node > parent node, then do swap
         1st sub tree
@@ -47,6 +48,8 @@ class MaxHeap:
                 5   6 10  1
         :return:
         """
+        # in push operation adjustment are done from downwards to upwards as
+        # first we append element at last and then adjust it to its proper position
         self.arr.append(element)
         self.element_count += 1
         self.last_index += 1
@@ -80,6 +83,7 @@ class MaxHeap:
 
     def pop(self):
         """
+        Time complexity O(log n)
         In heap deletion will always happen from top
         input - [None, 100, 55, 30, 50, 11, 10, 1, 5, 20, 6]
         1. 100 [None, - , 55, 30, 50, 11, 10, 1, 5, 20, 6]
@@ -104,6 +108,8 @@ class MaxHeap:
         | \  \
         20  11 30
         """
+        # in pop first we do pop top most element and then put last element of heap on the root node
+        # so we do have to adjustment from upwards to downwards
         if self.last_index == 0:
             return
         popped_element = self.arr[1]
@@ -142,23 +148,78 @@ class MaxHeap:
         # self.arr = self.arr[0:self.last_index+1]
         return popped_element
 
+    def heapify(self, arr, parent_index):
+        """
+        We start from right to left in an array to create a heap,
+        and adjustment we need to do from upwards to downwards as we do for deletion
+        steps are -
+        1. start from right to left
+        2. leaf nodes are already in heap
+        3. if we encounter a parent node, then try to arrange it properly downwards
+        :param parent_index:
+        :return:
+        """
+        child_node1_index = 2 * parent_index + 1
+        child_node2_index = 2 * parent_index + 2
+        if child_node1_index > len(arr) - 1 and child_node2_index > len(arr) - 1:
+            return
+        # if we encounter a node that has parent node then try to arrange parent node to its proper position
+        # to downwards
+        if child_node1_index <= len(arr) - 1 < child_node2_index:
+            swap_check_element = arr[child_node1_index]
+            swap_check_index = child_node1_index
+        else:
+            child_node1_element = arr[child_node1_index]
+            child_node2_element = arr[child_node2_index]
+            if child_node1_element > child_node2_element:
+                swap_check_element = child_node1_element
+                swap_check_index = child_node1_index
+            else:
+                swap_check_element = child_node2_element
+                swap_check_index = child_node2_index
+
+        parent_element = arr[parent_index]
+        if parent_element < swap_check_element:
+            arr[parent_index], arr[swap_check_index] = (arr[swap_check_index], arr[parent_index])
+            parent_index = swap_check_index
+            self.heapify(arr, parent_index)
+
 
 obj = MaxHeap()
-# push operation
-for x in [10, 6, 50, 5, 20, 30, 1, 100, 55, 11]:
-    obj.push(x)
-print(obj.arr)
 
-# pop operation
-while obj.last_index != 0:
-    obj.pop()
+
+def push_operation():
+    # If for a given array we convert that array to heap then the time complexity will be
+    # O(nlog n)
+    # push operation
+    for x in [10, 6, 50, 5, 20, 30, 1, 100, 55, 11]:
+        obj.push(x)
     print(obj.arr)
 
-# sorting
-while obj.last_index != 0:
-    popped_element = obj.pop()
-    obj.arr[obj.last_index + 1] = popped_element
-    print(obj.arr)
+
+def pop_operation():
+    # If we popping every element from heap then time complexity will be O(n log n)
+    # pop operation
+    while obj.last_index != 0:
+        obj.pop()
+        print(obj.arr)
+
+
+def heap_sort():
+    # sorting
+    while obj.last_index != 0:
+        popped_element = obj.pop()
+        obj.arr[obj.last_index + 1] = popped_element
+        print(obj.arr)
+
+
+def heapify_operation():
+    arr = [10, 6, 50, 5, 20, 30, 1, 100, 55, 11]
+    last_index = len(arr) - 1
+    while last_index >= 0:
+        obj.heapify(arr, last_index)
+        last_index -= 1
+    print(arr)
 
 # [None, 50, 20, 30, 100, 6, 10, 1, 5]
 # 100
