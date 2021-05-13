@@ -1,16 +1,18 @@
+# Complexity O(n log n) As here we are not comparing a element with each
+# instead we are generating 2 sorted array in each recursion and just comparing log n time
 def merge_sort(arr):
     if len(arr) == 1:
         return arr
     divide_index = len(arr) // 2
     left_arr = arr[0:divide_index]
     right_arr = arr[divide_index:]
-    return merge(
+    return compare(
         merge_sort(left_arr),
         merge_sort(right_arr)
     )
 
 
-def merge(left_arr, right_arr):
+def compare(left_arr, right_arr):
     print('-------------------------')
     print('left arr - {}'.format(left_arr))
     print('right arr - {}'.format(right_arr))

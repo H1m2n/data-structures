@@ -182,13 +182,13 @@ Q: How we calculate balance factor?
 Ans: balance factor = height of left - height of right
 Ans: eg:            10 --> 2 - 0 = 2
                    /
-                  20 --> 1-0 = 0
+                  5 --> 1-0 = 0
                   /
-                 30 --> 0
+                 1--> 0
 
                  10 -----> 1 - 2 = -1
                 /  \
-          0<---20   30 ---> 0 - 1 = -1
+          0<---5   30 ---> 0 - 1 = -1
                      \
                       40 --> 0
 Q: How we balance a tree?
