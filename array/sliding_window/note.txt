@@ -1,0 +1,15 @@
+Sliding window questions are of 2 types
+1> Fixed size window
+2> Variable size window
+
+1> Fixed size window
+    In this approach we will have 2 pointers
+    a> initially i = j = 0
+    b> we increase j until we don't hit the window size that is provided in the question.
+    c> window size k = j - i + 1.
+        eg a = [1,2,3,4,5,6]
+        if k = 3, window can be 0 to 2, 1 to 3, 2 to 4...
+        so the conclusion is 2 - 0 + 1 means j - i + 1 will be equal to window size
+    d> Once we hit the window size, we will create next window by increasing
+       i++ and j++
+
