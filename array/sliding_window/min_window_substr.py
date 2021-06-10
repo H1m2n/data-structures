@@ -1,67 +1,63 @@
-"""
-Level - Hard
-Problem:
-We have one long string and one smaller string.
-Smaller strings character should be present in longer string.
-Condition is if a character count in smaller string is 2 then that character count in window should be >= 2
-
-eg: s1 = "time to practice"
-    s2 = "toc"
-    out = "to prac"
-"""
+# 
 from collections import defaultdict
 
 
-def min_window_substr(str, ptr):
-    """
-    pattern_map = {
-        t: 1
-        o: 1
-        c: 1
-    }
-    :param str:
-    :param ptr:
-    :return:
-    """
+def min_window_substr(s, t):
     pattern_map = defaultdict(lambda: 0)
-    for x in ptr:
+    for x in t:
         pattern_map[x] = pattern_map[x] + 1
     distinct_char_count = len(pattern_map)
+    # print(pattern_map)
 
+    min_i, min_j = (0, 0)
     i = j = 0
     min_l = 0
-    cond_meet_in_loop = False
-    while j < len(str):
-        if str[j] in pattern_map:
-            pattern_map[str[j]] = pattern_map[str[j]] - 1
-            if pattern_map[str[j]] == 0:
+    while j < len(s):
+        if s[j] in pattern_map:
+            pattern_map[s[j]] = pattern_map[s[j]] - 1
+            if pattern_map[s[j]] == 0:
                 distinct_char_count -= 1
 
+        # print(i, j, pattern_map, distinct_char_count)
         if distinct_char_count > 0:
             j += 1
         elif distinct_char_count == 0:
-            if cond_meet_in_loop:
-                start_i, end_i = (i - 1, j - 1)
-            else:
-                start_i, end_i = (i, j)
-            no_of_char_in_substr = end_i - start_i + 1
-            print(i-1, j-1)
-            print(f"no_of_char_in_substr - {no_of_char_in_substr}, start_i - {start_i}, end_i - {end_i}")
-            if min_l == 0:
-                min_l = no_of_char_in_substr
-            else:
-                min_l = min(min_l, no_of_char_in_substr)
+            # we have expanded right pointer to meet the condition
+            # now our job is to make window as shrink as possible while satisfying the condition
             while distinct_char_count == 0:
-                if str[i] in pattern_map:
-                    pattern_map[str[i]] = pattern_map[str[i]] + 1
-                    if pattern_map[str[i]] == 1:
+                if s[i] in pattern_map:
+                    pattern_map[s[i]] = pattern_map[s[i]] + 1
+                    if pattern_map[s[i]] == 1:
                         distinct_char_count += 1
-                        cond_meet_in_loop = True
                 i += 1
+            window_size = j - (i - 1) + 1
+            if min_l == 0:
+                min_l = window_size
+                min_i = i - 1
+                min_j = j
+            else:
+                if window_size < min_l:
+                    min_i = i - 1
+                    min_j = j
+                min_l = min(min_l, window_size)
             j += 1
-    return min_l
+    print(min_l, min_i, min_j)
+    if min_l == 0:
+        return ""
+    else:
+        return s[min_i:min_j + 1]
 
 
-s1 = "timetopractice"
-s2 = "toc"
-print(min_window_substr(s1, s2))
+s = "ADOBECODEBANC"
+# s = "ADOBECAODEBANC"
+# s = "ADOBECA"
+# s = 'ABC'
+t = "ABC"
+s = "a"
+t = "a"
+print(tmp(s, t))
+# {
+#     a: -1, 0
+#     b: 0,
+#     c: 0,
+# }
