@@ -14,6 +14,7 @@ class ArrayImp:
         return last_item
 
 
+
 obj = ArrayImp()
 obj.push(10)
 obj.push(20)
