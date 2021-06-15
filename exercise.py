@@ -1,4 +1,5 @@
 # robbery question
+
 def rob(nums):
     rob1, rob2 = 0, 0
 
