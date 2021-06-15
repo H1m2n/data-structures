@@ -22,7 +22,8 @@ def subset_sum_memoized(arr, sum):
                                                                   subset_sum_memoized(arr[:no_of_items - 1],
                                                                                       sum - selected_item)
                                                               ) + (
-                                                                  0 + subset_sum_memoized(arr[:no_of_items - 1], sum)
+                                                                      0 + subset_sum_memoized(arr[:no_of_items - 1],
+                                                                                              sum)
                                                               )
         return memoized_dict[(selected_item, sum - selected_item)]
 
