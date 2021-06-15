@@ -1,3 +1,21 @@
 identification:
 
 * choices will be given in question
+* enhanced recursion
+* in DP problem, there might be asked for optimal solution(means get min, get max)
+* when a function call itself more than ones at a time then there might be possibility that curr sub problem
+  already solved somewhere previously this is called function overlapping. Then in this case we can store
+  previous sub-problem output in matrix or dictionary
+
+
+parent question of DP
+2. 0-1 knapsack (6 question based)
+3. unbounded knapsack (5 question based)
+4. fibonacci (7 question based)
+5. LCS (15 question based)
+6. LIS (10 question based)
+7. kadane's algo (6 question based)
+8. matrix chain multiplication (7 question based)
+9. DP on trees (4 question based)
+10. DP on grid (14 question based)
+11. others (5 question based)
