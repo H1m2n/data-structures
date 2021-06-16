@@ -1,0 +1,23 @@
+# difference between unbounded and 0/1 knapsack
+
+# similarities:
+    # we always process last item of array, for next iteration we remove last item for rest of the recursive approach
+# differences:
+    # in 0/1 knapsack item will be processed irrespective of either we have selected that item or not
+    # in unbounded knapsack, if item is not taken then this is processed but if item is taken, then we can take this item
+      again for rest of the processing
+
+# code variation:
+  0/1 knapsack ->
+            if item_weight[i - 1] <= j:
+                t[i][j] = max(item_value[i - 1] + t[i - 1][j - item_weight[i - 1]], t[i - 1][j])
+                                                 __________
+            else:
+                t[i][j] = t[i - 1][j]
+
+  unbounded knapsack ->
+            if item_weight[i - 1] <= j:
+                t[i][j] = max(item_value[i - 1] + t[i][j - item_weight[i - 1]], t[i - 1][j])
+                                                  _____
+            else:
+                t[i][j] = t[i - 1][j]
