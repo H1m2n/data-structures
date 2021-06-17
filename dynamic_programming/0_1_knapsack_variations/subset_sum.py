@@ -8,7 +8,7 @@ sum = 11
 
 # recursive approach
 def subset_sum(arr, sum):
-    if len(arr) == 0 and sum == 0:
+    if len(arr) >= 0 and sum == 0:
         return True
     if len(arr) == 0 and sum > 0:
         return False
@@ -31,7 +31,7 @@ memoized_dict = {}
 
 
 def subset_sum_memoized(arr, sum):
-    if len(arr) == 0 and sum == 0:
+    if len(arr) >= 0 and sum == 0:
         return True
     if len(arr) == 0 and sum > 0:
         return False
@@ -55,5 +55,5 @@ def subset_sum_memoized(arr, sum):
 
 
 # print(memoized_dict)
-# print(subset_sum(arr, sum))
+print(subset_sum(arr, sum))
 print(subset_sum_memoized(arr, sum))
