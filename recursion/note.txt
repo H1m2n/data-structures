@@ -1,0 +1,17 @@
+Recursion is every where used in several data structeres like array, string, tree, graph
+moreover algorithms are design on recursion eg: DP, Backtracking, Divide and Concquer
+
+Recursion can be solved by using 3 methods
+1. IBH (Induction, Base Condition, Hypothesis). Generally used for simple problem. eg - print 1 to N
+   a> Base cond - where recursion should be break (that is obviously smallest valid input)
+   b> Hypothesis - We will try to run recursive fucntion on smaller input, there we can see some generalise formula (basically we will get the signature of function)
+   c> Induction - Introduce  a step output
+
+
+   Approach for IBH is
+   a> design Hypothesis
+   b> induction
+   c> base cond
+
+2. Recursion tree (I/p - o/p method) - https://www.youtube.com/watch?v=kHi1DUhp9kM&list=PL_z_8CaSLPWeT1ffjiImo0sYTcnLzo-wY&index=2
+3. Decision tree

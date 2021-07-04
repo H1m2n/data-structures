@@ -1,0 +1,25 @@
+1. Sum of N natural number = N(N+1) / 2
+   Use case -> We have an array that should has numbers 1 to N, but one number is missing,
+               found missing number
+
+2. Number of possible pairs for N number = N * (N - 1) / 2
+   Explanation ->
+   Imagine a room with n people, each of whom shakes hands with everyone else.
+   If you focus on just one person you see that she participates in n−1 handshakes. Since there are n people,
+   that would lead to n(n−1) handshakes
+
+   To finish the problem, we should realize that the total of n(n−1) counts every handshake twice,
+   once for each of the two people involved. So the number of handshakes is n(n−1)/2.
+
+
+   [[1,2],[1,2],[1,1],[1,2],[2,2],[3,4],[4,3]]
+
+   [1, 2], [1, 2], [1, 2]
+   3
+
+   [3, 4], [4, 3]
+   1 + 1
+       1 + 1
+           1 + 1
+
+   1 + 1

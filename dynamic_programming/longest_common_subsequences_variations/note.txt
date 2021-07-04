@@ -1,0 +1,9 @@
+longest common substring and subsequence both are different things:
+
+substring will be in continuous and subsequence is not necessary to be in continuous
+Note -> subsequence means matching order should be preserved(in sequence)
+
+
+How to identify LCS?
+1. Should be ask for optimal solution
+2. And there should bbe given 2 strings
