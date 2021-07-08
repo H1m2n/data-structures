@@ -15,3 +15,11 @@ Recursion can be solved by using 3 methods
 
 2. Recursion tree (I/p - o/p method) - https://www.youtube.com/watch?v=kHi1DUhp9kM&list=PL_z_8CaSLPWeT1ffjiImo0sYTcnLzo-wY&index=2
 3. Decision tree
+
+
+IMPORTANT:
+Example path - dynamic_programming/leetcode/sort-integers-by-the-power-value.py
+
+# hypothesis and base condition work together, can be easily explained by comment in base condition
+# to get the intermediate result, we need to store that result somewhere like  dp[n] = 1 + self.helper(n, dp)
+# It is important to return a value from the function, if we expect intermediate results to store
