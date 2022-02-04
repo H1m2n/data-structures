@@ -29,7 +29,7 @@ def solve(N, K):
     if N == 1 or K == 1:
         return 0
 
-    mid = ((N - 1) ** 2) // 2
+    mid = (2 ** (N-1)) // 2
     if K <= mid:
         return solve(N - 1, K)
     else:

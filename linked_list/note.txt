@@ -47,6 +47,20 @@ while(second_node)
     second_node = tmp
 
 
+10 ----> 5 ----> 20 -----> 8
 
+10 <---- 5 <---- 20 <----- 8
+
+first = self.head
+self.tail = first
+second = first.next
+
+while second:
+    tmp = second.next
+    second.next = first
+    first = second
+    second = tmp
+first.next = None
+self.head = first
 
 

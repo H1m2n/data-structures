@@ -9,7 +9,7 @@
 # Note: This question require some observation skill
 
 # Here, we have 2 choices, one for ( and another for ). But for closing bracket choices is not always available sometime
-# because we need to make balanced parenthesis, while closing bracket choices is always available until we don't have it
+# because we need to make balanced parenthesis, while opening bracket choices is always available until we don't have it
 
 # Observation for closing bracket choice ->
 #    we can pick closing bracket only and only if - no of open brackets < no of closing brackets

@@ -16,4 +16,4 @@ class Processor(enum.Enum):
     I5 = 2
 
 
-# print(Brand.apple.name)
+print(Brand.mac.name)

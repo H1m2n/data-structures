@@ -19,3 +19,8 @@ parent question of DP
 9. DP on trees (4 question based)
 10. DP on grid (14 question based)
 11. others (5 question based)
+
+very common mistake. For memo to work, the result for [i..n) should not depend on [0, i)
+
+https://leetcode.com/explore/learn/card/data-structure-tree/17/solve-problems-recursively/536/
+https://leetcode.com/explore/learn/card/n-ary-tree/
